@@ -34,7 +34,7 @@ Jak jsem postupoval:
 
 7) Tvořím skript pro dotazy nad finálními tabulkami. Jde už o velice jednoduché dotazy. Pro lepší formát dat pro následný přesun do Excelu využívám CAST a měním si číselné hodnoty na celá čísla. Jedná se v této chvíli už jen o korekci formátu, za desetinou tečkou jsou jen nuly. 
 
-8) K podkladovým tabulkám a odpovědím na jednotlivé výzkumné otázky využívám EXCEL - "VO_podklady a analýza". Tvořím si zde potřebné přehledy a výpočty. Odpovídám na výzkumné otázky.
+8) K podkladovým tabulkám a odpovědím na jednotlivé výzkumné otázky využívám EXCEL - "VO_podklady a analýza". Tvořím si zde potřebné přehledy a výpočty. Odpovídám na výzkumné otázky - k nalazení pod jednotlivými listy.
 
 
 POznámky:
