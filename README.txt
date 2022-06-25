@@ -38,7 +38,7 @@ README PRO PROJEKT SQL - STEPAN BENES ------------------------
 
 ------
 7. Analýzu pro odpovězení na výzkumné otázky https://github.com/birkofcz/stepanbenes_dataacademy_engeto/blob/main/VO_podklady%20a%20analy%CC%81za.xlsx jsi udělal moc pěkně. Díky za to :) K tomu nemám připomínky ;)
-
+------
 - Děkuji!
 
 -----
