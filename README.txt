@@ -2,12 +2,66 @@
 
 README PRO PROJEKT SQL - STEPAN BENES ------------------------
 
+
+
+2022_06_25: POPIS ZMĚN V REAKCI NA ZPĚTNOU VAZBU
+
+-----
+1. Průvodní listina obsahuje základní strukturu a popisuje postup. To zlepšuje přehlednost projektu. Nicméně jsem v ní našel trošičku překlepů a možná by zasloužila trošku učesat z pohledu markdownu. GitHub to renderuje tak nějak zvláštně.
+-----
+- Nové README jsem se snažil napsat bez chyb a lépe zalamovat. Na GitHubu se mi to renderuje dobře.
+
+-----
+2. Repozitář by nemusel obsahovat tento soubor https://github.com/birkofcz/stepanbenes_dataacademy_engeto/blob/main/.project, který je čistě pracovní. Bylo by vhodné jej zahrnout do .gitignore.
+-----
+- OPRAVENO. Naučil jsem se vytvořit .gitignore a soubor do něj přidal. Repozitář mi obecně občas vracel chyby, proto jsem jej celý obnovil do čisté podoby. Nyní již fungují commity a pully bez problémů.
+
+-----
+3. SQL jsou dobře strukturované a to zlepšuje jejich čitelnost. Občas nemáš sjednocena rezervovaná slova na kapitálky - to by se ještě hodilo sjednotit.
+-----
+- OPRAVENO - v upravených skriptech sjednoceno
+
+-----
+4. Nějak necháput takovou extrémní složitost https://github.com/birkofcz/stepanbenes_dataacademy_engeto/blob/main/Projekt_hlavni_tabulky.sql - proč děláš tolik UNION. Nakonec přece vybereš všechny kategorie. Nešlo by jedním dotazem bez konkrétních WHERE a poté nutnosti UNIONs? 
+-----
+- Zkoušel jsem varianty bez WHERE, selecty mi ale vrací divné výstupy, které si mi nedařilo opravit. V této podobě to dobře fungovalo jen přes ty UNIONy. Fakticky to tolik práce nebylo, jen CTRL+C a CTRL+V. Nicméně jednoduchý a čistý kód to není, uznávám. Vrátil jsem se proto o krok zpět a úplně vynechal pomocné tabulky. Primární tabulku jsem vyřešil pro jeden CREATE TABLE. Celé je to teď čistší. Průměrné ceny a mzdy si pak SELECTuji až v dotazech nad primární tabulkou. 
+
+-----
+5. Proč je zde blok úklidu? https://github.com/birkofcz/stepanbenes_dataacademy_engeto/blob/main/Projekt_hlavni_tabulky.sql#L6 Proč se nemá pouštět? Není tedy lepší odstranit, nebo upravit dotazy s IF EXISTS přepínači, aby SQL nespadly, když objekty neexistují?
+-----
+- Pravda, používal jsem to při tvorbě, abych si ulehčil psaní, ve finálním skriptu je to ale zbytečné a odstranil jsem to. Teď je to mnohem kratší a přehlednější.
+ 
+-----
+6. Opět problém s UNIONs v https://github.com/birkofcz/stepanbenes_dataacademy_engeto/blob/main/Projekt_hlavni_tabulky.sql a jak se tento soubor liší od předchozího SQL scriptu?
+-----
+- Tady tomu moc nerozumím. Vypadá to, jako by tam snad byl ten soubor zdvojený na nějakých konfliktních změnách. Má tam být pouze jednou. Jak jsem psal v prvním bodě, práce s gitem mi občas vracela chyby, zřejmě na nějakém konfliktu, kdy jsem se o commity a pully snažil střídavě z BASHe a z Dbeaveru, kde to není úplně optimální. Repozitář jsem nicméně vyčistil a pak už commitoval jen úpravy ze zpětné vazby - a čistě z terminálu.
+
+------
+7. Analýzu pro odpovězení na výzkumné otázky https://github.com/birkofcz/stepanbenes_dataacademy_engeto/blob/main/VO_podklady%20a%20analy%CC%81za.xlsx jsi udělal moc pěkně. Díky za to :) K tomu nemám připomínky ;)
+
+- Děkuji!
+
+-----
+8. Ještě poznámka ke commitům. Je super, že jsi postupně commitoval a je vidět postup. Nicméně bych volil spíše angličtinu. Doporučuji pohledat "how to write commit message"
+-----
+- Rozumím. Nové commity už mají anglické popisy, podle pravidla KISS - Keep it short and simple. 
+
+
 Přehled souborů:
 ----------------
-Projekt_hlavni_tabulky.sql - skript pro vytvoření PRIMARY a SECONDARY tabulek + pomocných tabulek
+Projekt_hlavni_tabulky.sql - skript pro vytvoření PRIMARY a SECONDARY tabulek 
 Projekt_SQL_sada.sql - skript s dotazy nad PRIMARY a SECONDARY tabulkami
 VO_podklady a analýza.xlsx - EXCEL s podkladovými tabulkami k výzkumným otázkám a odpovědmi na výzkumné otázky
-README.md - průvodbí dokumentace k projektu
+README.txt - průvodní dokumentace k projektu
+
+
+
+
+
+
+
+2022_06_12: ODEVZDÁNÍ PROJEKTU
+
 
 Jak jsem postupoval:
 --------------------
@@ -22,7 +76,7 @@ Jak jsem postupoval:
    
 5) Rozhoduji se pro tvorbu 4 pomocných tabulek pro primární tabulku a 2 pomocných tabulek pro sekundární tabulku. Využiji je pro přehledné očištění dat a postupné výpočty průměrů. 
 	-- Primarni tabulka -- 
-	I. t_stepanb_price_edited - selekce relevatních dat
+	I. t_stepanb_price_edited - selekce relevantních dat
 	II. t_stepanb_payroll_edited - selekce relevantních dat
 	III. t_stepan_price_avg - tvorba průměrných cen napříč republikou za jednotlivé roky - po jednotlivých odvětvích 
 	IV. t_stepan_payroll_edited - počítání průměrných výplat za jednotlivé roky - po jednotlivých odvětvích
