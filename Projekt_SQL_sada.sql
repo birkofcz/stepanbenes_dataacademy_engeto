@@ -4,7 +4,7 @@
 -- 1. rostou v průběhu let mzdy ve všech odvětvích, nebo v některých klesají?
 SELECT 
 	rok,
-	ROUND(AVG(cena_nebo_mzda)) as prumerna_mzda_nebo_cena,
+	ROUND(AVG(cena_nebo_mzda)) AS prumerna_mzda_nebo_cena,
 	kod_odvetvi,
 	nazev_odvetvi
 FROM t_stepan_benes_project_SQL_primary_final
@@ -23,7 +23,7 @@ GROUP BY rok
 		rok,
 		kod_odvetvi,
 		nazev_odvetvi,
-		ROUND(AVG(cena_nebo_mzda)) as prumerna_cena
+		ROUND(AVG(cena_nebo_mzda)) AS prumerna_cena
 	FROM t_stepan_benes_project_SQL_primary_final
 	WHERE kod_odvetvi = 114201
 		AND rok = 2006 -- vymen si rok
@@ -35,7 +35,7 @@ GROUP BY rok
 		rok,
 		kod_odvetvi,
 		nazev_odvetvi,
-		ROUND(AVG(cena_nebo_mzda)) as prumerna_cena
+		ROUND(AVG(cena_nebo_mzda)) AS prumerna_cena
 	FROM t_stepan_benes_project_SQL_primary_final
 	WHERE kod_odvetvi = 111301
 		AND rok = 2006 -- vymen si rok
@@ -49,7 +49,7 @@ GROUP BY rok
 -- 3. Která kategorie potravin zdražuje nejpomaleji (je u ní nejnižší meziroční procentuálnbí nárůst)?
  SELECT 
 	rok,
-	ROUND(AVG(cena_nebo_mzda)) as prumerna_mzda_nebo_cena,
+	ROUND(AVG(cena_nebo_mzda)) AS prumerna_mzda_nebo_cena,
 	kod_odvetvi,
 	nazev_odvetvi
 FROM t_stepan_benes_project_SQL_primary_final

@@ -40,42 +40,42 @@ UNION
 -- I. POMOCNÁ TABULKA - pouze relevantní údaje a evropské státy
 
 CREATE OR REPLACE TABLE t_stepanb_countries_edit AS ( 
-SELECT 
-	country,
-	continent,
-	population
-FROM countries c 
-WHERE continent = 'Europe'
+	SELECT 
+		country,
+		continent,
+		population
+	FROM countries c 
+	WHERE continent = 'Europe'
 )
 ;
 
 -- II. POMOCNÁ TABULKA - pouze relevantní údaje a roky
 
 CREATE OR REPLACE TABLE t_stepanb_economies_edit AS ( 
-SELECT
-	country as zeme,
-	`year` as rok,
-	GDP as HDP,
-	population as populace,
-	gini
-FROM economies e 
-WHERE `year` BETWEEN 2006 AND 2018
-ORDER BY `year` ASC
+	SELECT
+		country AS zeme,
+		`year` AS rok,
+		GDP AS HDP,
+		population AS populace,
+		gini
+	FROM economies e 
+	WHERE `year` BETWEEN 2006 AND 2018
+	ORDER BY `year` ASC
 );
 
 -- -- HLAVNÍ TABULKA SECONDARY - t_stepan_benes_project_SQL_secondary_final -- CROSS JOIN relevantních dat z pomocných tabulek
 
 CREATE OR REPLACE TABLE t_stepan_benes_project_SQL_secondary_final AS (
-select 
-tsce.country as stat,
-tsce.continent as kontinent,
-tsee.populace as populace,
-tsee.HDP,
-tsee.gini as gini,
-tsee.rok as rok
-FROM t_stepanb_countries_edit tsce 
-CROSS JOIN t_stepanb_economies_edit tsee 
-	ON tsce.country = tsee.zeme
+	SELECT 
+		tsce.country AS stat,
+		tsce.continent AS kontinent,
+		tsee.populace AS populace,
+		tsee.HDP,
+		tsee.gini AS gini,
+		tsee.rok AS rok
+	FROM t_stepanb_countries_edit tsce 
+	CROSS JOIN t_stepanb_economies_edit tsee 
+		ON tsce.country = tsee.zeme
 )
 ;
 
